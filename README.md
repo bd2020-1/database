@@ -23,7 +23,7 @@ version: "3"
 
 services:
   mysql-db:
-    image: josehisse/vodan-mysql:{TAG}
+    image: ghcr.io/bd2020-1/database/vodan-mysql:latest
     environment:
       MYSQL_DATABASE: project_vodan
       MYSQL_ROOT_PASSWORD: abc123
