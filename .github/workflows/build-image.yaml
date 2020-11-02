@@ -16,7 +16,7 @@ jobs:
         id: docker_meta
         uses: crazy-max/ghaction-docker-meta@v1
         with:
-          images: josehisse/vodan-databases/mysql
+          images: josehisse/vodan-mysql
           tag-sha: true
       -
         name: Set up QEMU
