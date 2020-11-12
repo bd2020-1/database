@@ -166,7 +166,7 @@ DROP TABLE IF EXISTS `tb_formrecord`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tb_formrecord` (
-  `formRecordID` int(10) NOT NULL,
+  `formRecordID` int(10) NOT NULL AUTO_INCREMENT,
   `participantID` int(10) NOT NULL,
   `hospitalUnitID` int(10) NOT NULL,
   `questionnaireID` int(10) NOT NULL,
@@ -177,7 +177,7 @@ CREATE TABLE `tb_formrecord` (
   KEY `FKtb_FormRec984256` (`participantID`,`hospitalUnitID`,`questionnaireID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
+ALTER TABLE `tb_formrecord` AUTO_INCREMENT=1;
 --
 -- Dumping data for table `tb_formrecord`
 --
@@ -485,11 +485,12 @@ DROP TABLE IF EXISTS `tb_hospitalunit`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tb_hospitalunit` (
-  `hospitalUnitID` int(10) NOT NULL,
+  `hospitalUnitID` int(10) NOT NULL AUTO_INCREMENT,
   `hospitalUnitName` varchar(500) NOT NULL COMMENT '(pt-br) Nome da unidade hospitalar.\r\n(en) Name of the hospital unit.',
   PRIMARY KEY (`hospitalUnitID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='(pt-br) Tabela para identificação de unidades hospitalares.\r\n(en) Table for hospital units identification.';
 /*!40101 SET character_set_client = @saved_cs_client */;
+ALTER TABLE `tb_hospitalunit` AUTO_INCREMENT=1;
 
 --
 -- Dumping data for table `tb_hospitalunit`
@@ -498,8 +499,8 @@ CREATE TABLE `tb_hospitalunit` (
 LOCK TABLES `tb_hospitalunit` WRITE;
 /*!40000 ALTER TABLE `tb_hospitalunit` DISABLE KEYS */;
 INSERT into tb_hospitalunit
-VALUES(1, 'Jose da Silveira'), (2, 'Manoel Simoes'), (3, 'Fernando Da Silva'),
-(4, 'Giuseppe Meazza');
+VALUES(NULL, 'Jose da Silveira'), (NULL, 'Manoel Simoes'), (NULL, 'Fernando Da Silva'),
+(NULL, 'Giuseppe Meazza');
 /*!40000 ALTER TABLE `tb_hospitalunit` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -535,21 +536,21 @@ DROP TABLE IF EXISTS `tb_listofvalues`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tb_listofvalues` (
-  `listOfValuesID` int(10) NOT NULL,
+  `listOfValuesID` int(10) NOT NULL AUTO_INCREMENT,
   `listTypeID` int(10) NOT NULL,
   `description` varchar(255) NOT NULL COMMENT '(pt-br) Descrição.\r\n(en) description.',
   PRIMARY KEY (`listOfValuesID`),
   KEY `FKtb_ListOfV184108` (`listTypeID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='(pt-br) Representa todos os valores padronizados do formulário.\r\n(en) Represents all standard values on the form.';
 /*!40101 SET character_set_client = @saved_cs_client */;
-
+ALTER TABLE `tb_listofvalues` AUTO_INCREMENT=1;
 --
 -- Dumping data for table `tb_listofvalues`
 --
 
 LOCK TABLES `tb_listofvalues` WRITE;
 /*!40000 ALTER TABLE `tb_listofvalues` DISABLE KEYS */;
-INSERT INTO `tb_listofvalues` VALUES (1,1,'Interferon alpha'),(2,1,'Interferon beta'),(3,1,'Lopinavir/Ritonavir'),(4,1,'Neuraminidase inhibitor'),(5,1,'Ribavirin'),(6,2,'Alert'),(7,2,'Pain'),(8,2,'Unresponsive'),(9,2,'Verbal'),(10,3,'MERS-CoV'),(11,3,'SARS-CoV-2'),(12,4,'Inhaled'),(13,4,'Intravenous'),(14,4,'Oral'),(15,5,'Afghanistan'),(16,5,'Aland Islands'),(17,5,'Albania'),(18,5,'Algeria'),(19,5,'American Samoa'),(20,5,'Andorra'),(21,5,'Angola'),(22,5,'Anguilla'),(23,5,'Antarctica'),(24,5,'Antigua and Barbuda'),(25,5,'Argentina'),(26,5,'Armenia'),(27,5,'Aruba'),(28,5,'Australia'),(29,5,'Austria'),(30,5,'Azerbaijan'),(31,5,'Bahamas'),(32,5,'Bahrain'),(33,5,'Bangladesh'),(34,5,'Barbados'),(35,5,'Belarus'),(36,5,'Belgium'),(37,5,'Belize'),(38,5,'Benin'),(39,5,'Bermuda'),(40,5,'Bhutan'),(41,5,'Bolivia, Plurinational State of'),(42,5,'Bosnia and Herzegovina'),(43,5,'Botswana'),(44,5,'Bouvet Island'),(45,5,'Brazil'),(46,5,'British Indian Ocean Territory'),(47,5,'Brunei Darussalam'),(48,5,'Bulgaria'),(49,5,'Burkina Faso'),(50,5,'Burundi'),(51,5,'Cambodia'),(52,5,'Cameroon'),(53,5,'Canada'),(54,5,'Cape Verde'),(55,5,'Cayman Islands'),(56,5,'Central African Republic'),(57,5,'Chad'),(58,5,'Chile'),(59,5,'China'),(60,5,'Christmas Island'),(61,5,'Cocos (Keeling) Islands'),(62,5,'Colombia'),(63,5,'Comoros'),(64,5,'Congo'),(65,5,'Congo, the Democratic Republic of the'),(66,5,'Cook Islands'),(67,5,'Costa Rica'),(68,5,'Cote d\'Ivoire'),(69,5,'Croatia'),(70,5,'Cuba'),(71,5,'Cyprus'),(72,5,'Czech Republic'),(73,5,'Denmark'),(74,5,'Djibouti'),(75,5,'Dominica'),(76,5,'Dominican Republic'),(77,5,'Ecuador'),(78,5,'Egypt'),(79,5,'El Salvador'),(80,5,'Equatorial Guinea'),(81,5,'Eritrea'),(82,5,'Estonia'),(83,5,'Ethiopia'),(84,5,'Falkland Islands (Malvinas)'),(85,5,'Faroe Islands'),(86,5,'Fiji'),(87,5,'Finland'),(88,5,'France'),(89,5,'French Guiana'),(90,5,'French Polynesia'),(91,5,'French Southern Territories'),(92,5,'Gabon'),(93,5,'Gambia'),(94,5,'Georgia'),(95,5,'Germany'),(96,5,'Ghana'),(97,5,'Gibraltar'),(98,5,'Greece'),(99,5,'Greenland'),(100,5,'Grenada'),(101,5,'Guadeloupe'),(102,5,'Guam'),(103,5,'Guatemala'),(104,5,'Guernsey'),(105,5,'Guinea'),(106,5,'Guinea-Bissau'),(107,5,'Guyana'),(108,5,'Haiti'),(109,5,'Heard Island and McDonald Islands'),(110,5,'Holy See (Vatican City State)'),(111,5,'Honduras'),(112,5,'Hong Kong'),(113,5,'Hungary'),(114,5,'Iceland'),(115,5,'India'),(116,5,'Indonesia'),(117,5,'Iran, Islamic Republic of'),(118,5,'Iraq'),(119,5,'Ireland'),(120,5,'Isle of Man'),(121,5,'Israel'),(122,5,'Italy'),(123,5,'Jamaica'),(124,5,'Japan'),(125,5,'Jersey'),(126,5,'Jordan'),(127,5,'Kazakhstan'),(128,5,'Kenya'),(129,5,'Kiribati'),(130,5,'Korea, Democratic People\'\'s Republic of'),(131,5,'Korea, Republic of'),(132,5,'Kuwait'),(133,5,'Kyrgyzstan'),(134,5,'Lao People\'s Democratic Republic'),(135,5,'Latvia'),(136,5,'Lebanon'),(137,5,'Lesotho'),(138,5,'Liberia'),(139,5,'Libyan Arab Jamahiriya'),(140,5,'Liechtenstein'),(141,5,'Lithuania'),(142,5,'Luxembourg'),(143,5,'Macao'),(144,5,'Macedonia, the former Yugoslav Republic of'),(145,5,'Madagascar'),(146,5,'Malawi'),(147,5,'Malaysia'),(148,5,'Maldives'),(149,5,'Mali'),(150,5,'Malta'),(151,5,'Marshall Islands'),(152,5,'Martinique'),(153,5,'Mauritania'),(154,5,'Mauritius'),(155,5,'Mayotte'),(156,5,'Mexico'),(157,5,'Micronesia, Federated States of'),(158,5,'Moldova, Republic of'),(159,5,'Monaco'),(160,5,'Mongolia'),(161,5,'Montenegro'),(162,5,'Montserrat'),(163,5,'Morocco'),(164,5,'Mozambique'),(165,5,'Myanmar'),(166,5,'Namibia'),(167,5,'Nauru'),(168,5,'Nepal'),(169,5,'Netherlands'),(170,5,'Netherlands Antilles'),(171,5,'New Caledonia'),(172,5,'New Zealand'),(173,5,'Nicaragua'),(174,5,'Niger'),(175,5,'Nigeria'),(176,5,'Niue'),(177,5,'Norfolk Island'),(178,5,'Northern Mariana Islands'),(179,5,'Norway'),(180,5,'Oman'),(181,5,'Pakistan'),(182,5,'Palau'),(183,5,'Palestinian Territory, Occupied'),(184,5,'Panama'),(185,5,'Papua New Guinea'),(186,5,'Paraguay'),(187,5,'Peru'),(188,5,'Philippines'),(189,5,'Pitcairn'),(190,5,'Poland'),(191,5,'Portugal'),(192,5,'Puerto Rico'),(193,5,'Qatar'),(194,5,'Reunion ﻿ Réunion'),(195,5,'Romania'),(196,5,'Russian Federation'),(197,5,'Rwanda'),(198,5,'Saint Barthélemy'),(199,5,'Saint Helena'),(200,5,'Saint Kitts and Nevis'),(201,5,'Saint Lucia'),(202,5,'Saint Martin (French part)'),(203,5,'Saint Pierre and Miquelon'),(204,5,'Saint Vincent and the Grenadines'),(205,5,'Samoa'),(206,5,'San Marino'),(207,5,'Sao Tome and Principe'),(208,5,'Saudi Arabia'),(209,5,'Senegal'),(210,5,'Serbia'),(211,5,'Seychelles'),(212,5,'Sierra Leone'),(213,5,'Singapore'),(214,5,'Slovakia'),(215,5,'Slovenia'),(216,5,'Solomon Islands'),(217,5,'Somalia'),(218,5,'South Africa'),(219,5,'South Georgia and the South Sandwich Islands'),(220,5,'Spain'),(221,5,'Sri Lanka'),(222,5,'Sudan'),(223,5,'Suriname'),(224,5,'Svalbard and Jan Mayen'),(225,5,'Swaziland'),(226,5,'Sweden'),(227,5,'Switzerland'),(228,5,'Syrian Arab Republic'),(229,5,'Taiwan, Province of China'),(230,5,'Tajikistan'),(231,5,'Tanzania, United Republic of'),(232,5,'Thailand'),(233,5,'Timor-Leste'),(234,5,'Togo'),(235,5,'Tokelau'),(236,5,'Tonga'),(237,5,'Trinidad and Tobago'),(238,5,'Tunisia'),(239,5,'Turkey'),(240,5,'Turkmenistan'),(241,5,'Turks and Caicos Islands'),(242,5,'Tuvalu'),(243,5,'Uganda'),(244,5,'Ukraine'),(245,5,'United Arab Emirates'),(246,5,'United Kingdom'),(247,5,'United States'),(248,5,'United States Minor Outlying Islands'),(249,5,'Uruguay'),(250,5,'Uzbekistan'),(251,5,'Vanuatu'),(252,5,'Venezuela, Bolivarian Republic of'),(253,5,'Viet Nam'),(254,5,'Virgin Islands, British'),(255,5,'Virgin Islands, U.S.'),(256,5,'Wallis and Futuna'),(257,5,'Western Sahara'),(258,5,'Yemen'),(259,5,'Zambia'),(260,5,'Zimbabwe'),(261,6,'No'),(262,6,'Unknown'),(263,6,'Yes-not on ART'),(264,6,'Yes-on ART'),(265,7,'CPAP/NIV mask'),(266,7,'HF nasal cannula'),(267,7,'Mask'),(268,7,'Mask with reservoir'),(269,7,'Unknown'),(270,8,'>15 L/min'),(271,8,'1-5 L/min'),(272,8,'11-15 L/min'),(273,8,'6-10 L/min'),(274,8,'Unknown'),(275,9,'Death'),(276,9,'Discharged alive'),(277,9,'Hospitalized'),(278,9,'Palliative discharge'),(279,9,'Transfer to other facility'),(280,9,'Unknown'),(281,10,'Oxygen therapy'),(282,10,'Room air'),(283,10,'Unknown'),(284,13,'Female'),(285,13,'Male'),(286,13,'Not Specified'),(287,14,'Concentrator'),(288,14,'Cylinder'),(289,14,'Piped'),(290,14,'Unknown'),(291,11,'Not done'),(292,12,'Better'),(293,12,'Same as before illness'),(294,12,'Unknown'),(295,12,'Worse'),(296,15,'No'),(297,15,'Unknown'),(298,15,'Yes'),(299,16,'N/A'),(300,16,'No'),(301,16,'Unknown'),(302,16,'Yes'),(303,11,'Negative'),(304,11,'Positive'),(305,1,'Azithromycin'),(306,1,'Chloroquine/hydroxychloroquine'),(307,1,'Favipiravir');
+INSERT INTO `tb_listofvalues` VALUES (NULL, 1,'Interferon alpha'),(NULL, 1,'Interferon beta'),(NULL, 1,'Lopinavir/Ritonavir'),(NULL, 1,'Neuraminidase inhibitor'),(NULL, 1,'Ribavirin'),(NULL, 2,'Alert'),(NULL, 2,'Pain'),(NULL, 2,'Unresponsive'),(NULL, 2,'Verbal'),(NULL, 3,'MERS-CoV'),(NULL, 3,'SARS-CoV-2'),(NULL, 4,'Inhaled'),(NULL, 4,'Intravenous'),(NULL, 4,'Oral'),(NULL, 5,'Afghanistan'),(NULL, 5,'Aland Islands'),(NULL, 5,'Albania'),(NULL, 5,'Algeria'),(NULL, 5,'American Samoa'),(NULL, 5,'Andorra'),(NULL, 5,'Angola'),(NULL, 5,'Anguilla'),(NULL, 5,'Antarctica'),(NULL, 5,'Antigua and Barbuda'),(NULL, 5,'Argentina'),(NULL, 5,'Armenia'),(NULL, 5,'Aruba'),(NULL, 5,'Australia'),(NULL, 5,'Austria'),(NULL, 5,'Azerbaijan'),(NULL, 5,'Bahamas'),(NULL, 5,'Bahrain'),(NULL, 5,'Bangladesh'),(NULL, 5,'Barbados'),(NULL, 5,'Belarus'),(NULL, 5,'Belgium'),(NULL, 5,'Belize'),(NULL, 5,'Benin'),(NULL, 5,'Bermuda'),(NULL, 5,'Bhutan'),(NULL, 5,'Bolivia, Plurinational State of'),(NULL, 5,'Bosnia and Herzegovina'),(NULL, 5,'Botswana'),(NULL, 5,'Bouvet Island'),(NULL, 5,'Brazil'),(NULL, 5,'British Indian Ocean Territory'),(NULL, 5,'Brunei Darussalam'),(NULL, 5,'Bulgaria'),(NULL, 5,'Burkina Faso'),(NULL, 5,'Burundi'),(NULL, 5,'Cambodia'),(NULL, 5,'Cameroon'),(NULL, 5,'Canada'),(NULL, 5,'Cape Verde'),(NULL, 5,'Cayman Islands'),(NULL, 5,'Central African Republic'),(NULL, 5,'Chad'),(NULL, 5,'Chile'),(NULL, 5,'China'),(NULL, 5,'Christmas Island'),(NULL, 5,'Cocos (NULL, ling) Islands'),(NULL, 5,'Colombia'),(NULL, 5,'Comoros'),(NULL, 5,'Congo'),(NULL, 5,'Congo, the Democratic Republic of the'),(NULL, 5,'Cook Islands'),(NULL, 5,'Costa Rica'),(NULL, 5,'Cote d\'Ivoire'),(NULL, 5,'Croatia'),(NULL, 5,'Cuba'),(NULL, 5,'Cyprus'),(NULL, 5,'Czech Republic'),(NULL, 5,'Denmark'),(NULL, 5,'Djibouti'),(NULL, 5,'Dominica'),(NULL, 5,'Dominican Republic'),(NULL, 5,'Ecuador'),(NULL, 5,'Egypt'),(NULL, 5,'El Salvador'),(NULL, 5,'Equatorial Guinea'),(NULL, 5,'Eritrea'),(NULL, 5,'Estonia'),(NULL, 5,'Ethiopia'),(NULL, 5,'Falkland Islands (NULL, vinas)'),(NULL, 5,'Faroe Islands'),(NULL, 5,'Fiji'),(NULL, 5,'Finland'),(NULL, 5,'France'),(NULL, 5,'French Guiana'),(NULL, 5,'French Polynesia'),(NULL, 5,'French Southern Territories'),(NULL, 5,'Gabon'),(NULL, 5,'Gambia'),(NULL, 5,'Georgia'),(NULL, 5,'Germany'),(NULL, 5,'Ghana'),(NULL, 5,'Gibraltar'),(NULL, 5,'Greece'),(NULL, 5,'Greenland'),(NULL, 5,'Grenada'),(NULL, 5,'Guadeloupe'),(NULL, 5,'Guam'),(NULL, 5,'Guatemala'),(NULL, 5,'Guernsey'),(NULL, 5,'Guinea'),(NULL, 5,'Guinea-Bissau'),(NULL, 5,'Guyana'),(NULL, 5,'Haiti'),(NULL, 5,'Heard Island and McDonald Islands'),(NULL, 5,'Holy See (NULL, Vatican City State)'),(NULL, 5,'Honduras'),(NULL, 5,'Hong Kong'),(NULL, 5,'Hungary'),(NULL, 5,'Iceland'),(NULL, 5,'India'),(NULL, 5,'Indonesia'),(NULL, 5,'Iran, Islamic Republic of'),(NULL, 5,'Iraq'),(NULL, 5,'Ireland'),(NULL, 5,'Isle of Man'),(NULL, 5,'Israel'),(NULL, 5,'Italy'),(NULL, 5,'Jamaica'),(NULL, 5,'Japan'),(NULL, 5,'Jersey'),(NULL, 5,'Jordan'),(NULL, 5,'Kazakhstan'),(NULL, 5,'Kenya'),(NULL, 5,'Kiribati'),(NULL, 5,'Korea, Democratic People\'\'s Republic of'),(NULL, 5,'Korea, Republic of'),(NULL, 5,'Kuwait'),(NULL, 5,'Kyrgyzstan'),(NULL, 5,'Lao People\'s Democratic Republic'),(NULL, 5,'Latvia'),(NULL, 5,'Lebanon'),(NULL, 5,'Lesotho'),(NULL, 5,'Liberia'),(NULL, 5,'Libyan Arab Jamahiriya'),(NULL, 5,'Liechtenstein'),(NULL, 5,'Lithuania'),(NULL, 5,'Luxembourg'),(NULL, 5,'Macao'),(NULL, 5,'Macedonia, the former Yugoslav Republic of'),(NULL, 5,'Madagascar'),(NULL, 5,'Malawi'),(NULL, 5,'Malaysia'),(NULL, 5,'Maldives'),(NULL, 5,'Mali'),(NULL, 5,'Malta'),(NULL, 5,'Marshall Islands'),(NULL, 5,'Martinique'),(NULL, 5,'Mauritania'),(NULL, 5,'Mauritius'),(NULL, 5,'Mayotte'),(NULL, 5,'Mexico'),(NULL, 5,'Micronesia, Federated States of'),(NULL, 5,'Moldova, Republic of'),(NULL, 5,'Monaco'),(NULL, 5,'Mongolia'),(NULL, 5,'Montenegro'),(NULL, 5,'Montserrat'),(NULL, 5,'Morocco'),(NULL, 5,'Mozambique'),(NULL, 5,'Myanmar'),(NULL, 5,'Namibia'),(NULL, 5,'Nauru'),(NULL, 5,'Nepal'),(NULL, 5,'Netherlands'),(NULL, 5,'Netherlands Antilles'),(NULL, 5,'New Caledonia'),(NULL, 5,'New Zealand'),(NULL, 5,'Nicaragua'),(NULL, 5,'Niger'),(NULL, 5,'Nigeria'),(NULL, 5,'Niue'),(NULL, 5,'Norfolk Island'),(NULL, 5,'Northern Mariana Islands'),(NULL, 5,'Norway'),(NULL, 5,'Oman'),(NULL, 5,'Pakistan'),(NULL, 5,'Palau'),(NULL, 5,'Palestinian Territory, Occupied'),(NULL, 5,'Panama'),(NULL, 5,'Papua New Guinea'),(NULL, 5,'Paraguay'),(NULL, 5,'Peru'),(NULL, 5,'Philippines'),(NULL, 5,'Pitcairn'),(NULL, 5,'Poland'),(NULL, 5,'Portugal'),(NULL, 5,'Puerto Rico'),(NULL, 5,'Qatar'),(NULL, 5,'Reunion ﻿ Réunion'),(NULL, 5,'Romania'),(NULL, 5,'Russian Federation'),(NULL, 5,'Rwanda'),(NULL, 5,'Saint Barthélemy'),(NULL, 5,'Saint Helena'),(NULL, 5,'Saint Kitts and Nevis'),(NULL, 5,'Saint Lucia'),(NULL, 5,'Saint Martin (NULL, French part)'),(NULL, 5,'Saint Pierre and Miquelon'),(NULL, 5,'Saint Vincent and the Grenadines'),(NULL, 5,'Samoa'),(NULL, 5,'San Marino'),(NULL, 5,'Sao Tome and Principe'),(NULL, 5,'Saudi Arabia'),(NULL, 5,'Senegal'),(NULL, 5,'Serbia'),(NULL, 5,'Seychelles'),(NULL, 5,'Sierra Leone'),(NULL, 5,'Singapore'),(NULL, 5,'Slovakia'),(NULL, 5,'Slovenia'),(NULL, 5,'Solomon Islands'),(NULL, 5,'Somalia'),(NULL, 5,'South Africa'),(NULL, 5,'South Georgia and the South Sandwich Islands'),(NULL, 5,'Spain'),(NULL, 5,'Sri Lanka'),(NULL, 5,'Sudan'),(NULL, 5,'Suriname'),(NULL, 5,'Svalbard and Jan Mayen'),(NULL, 5,'Swaziland'),(NULL, 5,'Sweden'),(NULL, 5,'Switzerland'),(NULL, 5,'Syrian Arab Republic'),(NULL, 5,'Taiwan, Province of China'),(NULL, 5,'Tajikistan'),(NULL, 5,'Tanzania, United Republic of'),(NULL, 5,'Thailand'),(NULL, 5,'Timor-Leste'),(NULL, 5,'Togo'),(NULL, 5,'Tokelau'),(NULL, 5,'Tonga'),(NULL, 5,'Trinidad and Tobago'),(NULL, 5,'Tunisia'),(NULL, 5,'Turkey'),(NULL, 5,'Turkmenistan'),(NULL, 5,'Turks and Caicos Islands'),(NULL, 5,'Tuvalu'),(NULL, 5,'Uganda'),(NULL, 5,'Ukraine'),(NULL, 5,'United Arab Emirates'),(NULL, 5,'United Kingdom'),(NULL, 5,'United States'),(NULL, 5,'United States Minor Outlying Islands'),(NULL, 5,'Uruguay'),(NULL, 5,'Uzbekistan'),(NULL, 5,'Vanuatu'),(NULL, 5,'Venezuela, Bolivarian Republic of'),(NULL, 5,'Viet Nam'),(NULL, 5,'Virgin Islands, British'),(NULL, 5,'Virgin Islands, U.S.'),(NULL, 5,'Wallis and Futuna'),(NULL, 5,'Western Sahara'),(NULL, 5,'Yemen'),(NULL, 5,'Zambia'),(NULL, 5,'Zimbabwe'),(NULL, 6,'No'),(NULL, 6,'Unknown'),(NULL, 6,'Yes-not on ART'),(NULL, 6,'Yes-on ART'),(NULL, 7,'CPAP/NIV mask'),(NULL, 7,'HF nasal cannula'),(NULL, 7,'Mask'),(NULL, 7,'Mask with reservoir'),(NULL, 7,'Unknown'),(NULL, 8,'>15 L/min'),(NULL, 8,'1-5 L/min'),(NULL, 8,'11-15 L/min'),(NULL, 8,'6-10 L/min'),(NULL, 8,'Unknown'),(NULL, 9,'Death'),(NULL, 9,'Discharged alive'),(NULL, 9,'Hospitalized'),(NULL, 9,'Palliative discharge'),(NULL, 9,'Transfer to other facility'),(NULL, 9,'Unknown'),(NULL, 10,'Oxygen therapy'),(NULL, 10,'Room air'),(NULL, 10,'Unknown'),(NULL, 13,'Female'),(NULL, 13,'Male'),(NULL, 13,'Not Specified'),(NULL, 14,'Concentrator'),(NULL, 14,'Cylinder'),(NULL, 14,'Piped'),(NULL, 14,'Unknown'),(NULL, 11,'Not done'),(NULL, 12,'Better'),(NULL, 12,'Same as before illness'),(NULL, 12,'Unknown'),(NULL, 12,'Worse'),(NULL, 15,'No'),(NULL, 15,'Unknown'),(NULL, 15,'Yes'),(NULL, 16,'N/A'),(NULL, 16,'No'),(NULL, 16,'Unknown'),(NULL, 16,'Yes'),(NULL, 11,'Negative'),(NULL, 11,'Positive'),(NULL, 1,'Azithromycin'),(NULL, 1,'Chloroquine/hydroxychloroquine'),(NULL, 1,'Favipiravir');
 /*!40000 ALTER TABLE `tb_listofvalues` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -561,19 +562,19 @@ DROP TABLE IF EXISTS `tb_listtype`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tb_listtype` (
-  `listTypeID` int(10) NOT NULL,
+  `listTypeID` int(10) NOT NULL AUTO_INCREMENT,
   `description` varchar(255) NOT NULL COMMENT '(pt-br) Descrição.\r\n(en) description.',
   PRIMARY KEY (`listTypeID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
+ALTER TABLE `tb_listtype` AUTO_INCREMENT=1;
 --
 -- Dumping data for table `tb_listtype`
 --
 
 LOCK TABLES `tb_listtype` WRITE;
 /*!40000 ALTER TABLE `tb_listtype` DISABLE KEYS */;
-INSERT INTO `tb_listtype` VALUES (1,'Antiviral list'),(2,'AVPU list'),(3,'Coronavirus list'),(4,'Corticosteroid list'),(5,'Country list'),(6,'HIV list'),(7,'Interface list'),(8,'O2 flow list'),(9,'Outcome list'),(10,'Outcome saturation list'),(11,'pnnotdone_list'),(12,'self_care_list'),(13,'sex at birth list'),(14,'Source of oxygen list'),(15,'ynu_list'),(16,'ynun_list');
+INSERT INTO `tb_listtype` VALUES (NULL, 'Antiviral list'),(NULL, 'AVPU list'),(NULL, 'Coronavirus list'),(NULL, 'Corticosteroid list'),(NULL, 'Country list'),(NULL, 'HIV list'),(NULL, 'Interface list'),(NULL, 'O2 flow list'),(NULL, 'Outcome list'),(NULL, 'Outcome saturation list'),(NULL, 'pnnotdone_list'),(NULL, 'self_care_list'),(NULL, 'sex at birth list'),(NULL, 'Source of oxygen list'),(NULL, 'ynu_list'),(NULL, 'ynun_list');
 /*!40000 ALTER TABLE `tb_listtype` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -691,11 +692,12 @@ DROP TABLE IF EXISTS `tb_participant`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tb_participant` (
-  `participantID` int(10) NOT NULL,
-  `medicalRecord` varchar(500) DEFAULT NULL COMMENT '(pt-br) prontuário do paciente. \r\n(en) patient medical record.'
+  `participantID` int(10) NOT NULL AUTO_INCREMENT,
+  `medicalRecord` varchar(500) DEFAULT NULL COMMENT '(pt-br) prontuário do paciente. \r\n(en) patient medical record.',
+  PRIMARY KEY (`participantID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='(pt-br) Tabela para registros de pacientes.\r\n(en) Table for patient records.';
 /*!40101 SET character_set_client = @saved_cs_client */;
-
+ALTER TABLE `tb_participant` AUTO_INCREMENT=1;
 --
 -- Dumping data for table `tb_participant`
 --
@@ -704,95 +706,95 @@ LOCK TABLES `tb_participant` WRITE;
 /*!40000 ALTER TABLE `tb_participant` DISABLE KEYS */;
 INSERT into tb_participant
 VALUES
-(1, '20201101'), 
-(2, '20201102'), 
-(3, '20201103'), 
-(4, '20201104'),
-(5, '20201105'), 
-(6, '20201106'), 
-(7, '20201107'), 
-(8, '20201108'),
-(9, '20201109'), 
-(10, '20201110'),
-(88, '100011583533'),
-(89, '100015800495'),
-(90, '100016037980'),
-(91, '100016342133'),
-(92, '100016403455'),
-(93, '100016649438'),
-(94, '100016712525'),
-(95, '100017029697'),
-(96, '100017201734'),
-(97, '100017312028'),
-(98, '100017339039'),
-(99, '100017339997'),
-(100, '100017446628'),
-(101, '100017454192'),
-(102, '100017494263'),
-(103, '100017572316'),
-(104, '100017600000'),
-(105, '100017612534'),
-(106, '100017612955'),
-(107, '100017629702'),
-(108, '100017632672'),
-(109, '100017641384'),
-(110, '100017643869'),
-(111, '100017691801'),
-(112, '100017737315'),
-(113, '100017789100'),
-(114, '100017821218'),
-(115, '100017833114'),
-(116, '100017857592'),
-(117, '100017862519'),
-(118, '100017882038'),
-(119, '100017887391'),
-(120, '100017895154'),
-(121, '100017895352'),
-(122, '100017895402'),
-(123, '100017895436'),
-(124, '100017895626'),
-(125, '100017895659'),
-(126, '100017895709'),
-(127, '100017895774'),
-(128, '100017895790'),
-(129, '100017895808'),
-(130, '100017895816'),
-(131, '100017895824'),
-(132, '100017895881'),
-(133, '100017895915'),
-(134, '100017895998'),
-(135, '100017896053'),
-(136, '100017896061'),
-(137, '100017896244'),
-(138, '100017896269'),
-(139, '100017896285'),
-(140, '100017896392'),
-(141, '100017896442'),
-(142, '100017896517'),
-(143, '100017896525'),
-(144, '100017896590'),
-(145, '100017896673'),
-(146, '100017896681'),
-(147, '100017896699'),
-(148, '100017896707'),
-(149, '100017896822'),
-(150, '100017896830'),
-(151, '100017896863'),
-(152, '100017896889'),
-(153, '100017896988'),
-(154, '100017897085'),
-(155, '100017897101'),
-(156, '100017897119'),
-(157, '100017897143'),
-(158, '100017897234'),
-(159, '100017897333'),
-(160, '100017897408'),
-(161, '100017897473'),
-(162, '100017897689'),
-(163, '100017898349'),
-(164, '100017898372'),
-(165, '100017898521'),
-(166, '100017898737');
+(NULL, '20201101'), 
+(NULL, '20201102'), 
+(NULL, '20201103'), 
+(NULL, '20201104'),
+(NULL, '20201105'), 
+(NULL, '20201106'), 
+(NULL, '20201107'), 
+(NULL, '20201108'),
+(NULL, '20201109'), 
+(NULL, '20201110'),
+(NULL, '100011583533'),
+(NULL, '100015800495'),
+(NULL, '100016037980'),
+(NULL, '100016342133'),
+(NULL, '100016403455'),
+(NULL, '100016649438'),
+(NULL, '100016712525'),
+(NULL, '100017029697'),
+(NULL, '100017201734'),
+(NULL, '100017312028'),
+(NULL, '100017339039'),
+(NULL, '100017339997'),
+(NULL, '100017446628'),
+(NULL, '100017454192'),
+(NULL, '100017494263'),
+(NULL, '100017572316'),
+(NULL, '100017600000'),
+(NULL, '100017612534'),
+(NULL, '100017612955'),
+(NULL, '100017629702'),
+(NULL, '100017632672'),
+(NULL, '100017641384'),
+(NULL, '100017643869'),
+(NULL, '100017691801'),
+(NULL, '100017737315'),
+(NULL, '100017789100'),
+(NULL, '100017821218'),
+(NULL, '100017833114'),
+(NULL, '100017857592'),
+(NULL, '100017862519'),
+(NULL, '100017882038'),
+(NULL, '100017887391'),
+(NULL, '100017895154'),
+(NULL, '100017895352'),
+(NULL, '100017895402'),
+(NULL, '100017895436'),
+(NULL, '100017895626'),
+(NULL, '100017895659'),
+(NULL, '100017895709'),
+(NULL, '100017895774'),
+(NULL, '100017895790'),
+(NULL, '100017895808'),
+(NULL, '100017895816'),
+(NULL, '100017895824'),
+(NULL, '100017895881'),
+(NULL, '100017895915'),
+(NULL, '100017895998'),
+(NULL, '100017896053'),
+(NULL, '100017896061'),
+(NULL, '100017896244'),
+(NULL, '100017896269'),
+(NULL, '100017896285'),
+(NULL, '100017896392'),
+(NULL, '100017896442'),
+(NULL, '100017896517'),
+(NULL, '100017896525'),
+(NULL, '100017896590'),
+(NULL, '100017896673'),
+(NULL, '100017896681'),
+(NULL, '100017896699'),
+(NULL, '100017896707'),
+(NULL, '100017896822'),
+(NULL, '100017896830'),
+(NULL, '100017896863'),
+(NULL, '100017896889'),
+(NULL, '100017896988'),
+(NULL, '100017897085'),
+(NULL, '100017897101'),
+(NULL, '100017897119'),
+(NULL, '100017897143'),
+(NULL, '100017897234'),
+(NULL, '100017897333'),
+(NULL, '100017897408'),
+(NULL, '100017897473'),
+(NULL, '100017897689'),
+(NULL, '100017898349'),
+(NULL, '100017898372'),
+(NULL, '100017898521'),
+(NULL, '100017898737');
 /*!40000 ALTER TABLE `tb_participant` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -877,22 +879,22 @@ DROP TABLE IF EXISTS `tb_questiongroupformrecord`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tb_questiongroupformrecord` (
-  `questionGroupFormRecordID` int(10) NOT NULL,
+  `questionGroupFormRecordID` int(10) NOT NULL AUTO_INCREMENT,
   `formRecordID` int(10) NOT NULL,
   `crfFormsID` int(10) NOT NULL,
   `questionID` int(10) NOT NULL,
   `listOfValuesID` int(10) DEFAULT NULL,
-  `answer` varchar(512) DEFAULT NULL
+  `answer` varchar(512) DEFAULT NULL,
+  PRIMARY KEY (`questionGroupFormRecordID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='(pt-br) Tabela para registro da resposta associada a uma questão de um agrupamento de um formulário referente a um questionario de avaliação.\r\n(en) Form record table.';
 /*!40101 SET character_set_client = @saved_cs_client */;
-
+ALTER TABLE `tb_questiongroupformrecord` AUTO_INCREMENT=1;
 --
 -- Dumping data for table `tb_questiongroupformrecord`
 --
 
 LOCK TABLES `tb_questiongroupformrecord` WRITE;
 /*!40000 ALTER TABLE `tb_questiongroupformrecord` DISABLE KEYS */;
-
 INSERT INTO `tb_questiongroupformrecord` VALUES
 (1, 82, 1, 107, NULL, '18/11/1936'),
 (2, 82, 1, 111, 284, NULL),
@@ -2022,7 +2024,6 @@ INSERT INTO `tb_questiongroupformrecord` VALUES
 (1095, 229, 1, 242, NULL, 'HUGG - ENFERMARIA – COVID'),
 (1109, 232, 1, 242, NULL, 'HUGG - UNIDADE DE TERAPIA INTENSIVA – COVID A'),
 (1120, 235, 1, 242, NULL, 'HUGG - ENFERMARIA – COVID');
-
 /*!40000 ALTER TABLE `tb_questiongroupformrecord` ENABLE KEYS */;
 UNLOCK TABLES;
 
